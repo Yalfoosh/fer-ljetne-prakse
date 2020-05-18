@@ -11,8 +11,16 @@ Za čitanje podataka ne treba ništa posebno (.tsv podatci su prilično standard
 Za pokretanje su preduvjeti:
 
 - Python 3.6+
-- lxml (pip install lxml)
-- requests (pip install requests)
+- lxml (`pip install lxml`)
+- requests (`pip install requests`)
+
+Uz ovo nalazi se i **requirements.txt**, pa je moguća instalacija preduvjeta uz
+
+```
+pip install -r requirements.txt
+```
+
+dok ste pozicionirani u korijenskom direktoriju projekta.
 
 ## Pokretanje
 
