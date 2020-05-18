@@ -68,7 +68,8 @@ def save_file(content: str, folder: str, extension):
         file.write(content)
 
 
-def calculate_average(company_dict, min_wage: float = 25.39):
+def calculate_average(company_dict, min_wage: float = 25.39,
+                      per_person: bool = False):
     """
         Method that calculated the average wage per position. For more info
         on how this is calculated, visit the Jupyter notebook.
@@ -80,6 +81,10 @@ def calculate_average(company_dict, min_wage: float = 25.39):
     :param min_wage:
         A float containing the minimum wage per hour.
 
+    :param per_person:
+        A boolean; True if the average is calculated per person, False if it's
+        calculated per position.
+
     :return:
         A float containing the average wage per hour.
     """
@@ -90,19 +95,18 @@ def calculate_average(company_dict, min_wage: float = 25.39):
     for name, company in company_dict.items():
         for job in company["jobs"]:
             comp = job["compensation"]
+            count_increment = job["n_available"] if per_person else 1
 
             if comp in counter:
-                counter[comp] += 1
+                counter[comp] += count_increment
 
-                if comp != "Honorar":
-                    count += 1
+                if comp != "Honorar" or comp != "DaNe":
+                    count += count_increment
             else:
-                amount = range_delimiter_re.split(comp)
-
-                if len(amount) > 1:
-                    amount = sum(amount) / len(amount)
+                amount = [float(x) for x in range_delimiter_re.split(comp)]
+                amount = sum(amount) / len(amount)
 
                 total += amount
-                count += 1
+                count += count_increment
 
     return (total + counter["Da"] * min_wage)/count
