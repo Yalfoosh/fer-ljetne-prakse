@@ -6,22 +6,4 @@ Neke stvari za ljetne prakse. Parsiranje stranice i obrada podataka je uključen
 
 ## Preduvjeti
 
-Za čitanje podataka ne treba ništa posebno (.tsv podatci su prilično standardni).
-
-Za pokretanje su preduvjeti:
-
-- Python 3.6+
-- lxml (`pip install lxml`)
-- requests (`pip install requests`)
-
-Uz ovo nalazi se i **requirements.txt**, pa je moguća instalacija preduvjeta uz
-
-```
-pip install -r requirements.txt
-```
-
-dok ste pozicionirani u korijenskom direktoriju projekta.
-
-## Pokretanje
-
-TODO
+Treba napraviti još neke stvari, a trenutno su u tijeku ispiti - kad završe, oko početka 7. mjeseca ću dovršiti ovo s nekim dodatnim stvarima, za sad je okej što se tiče podataka (iako fale neki).
